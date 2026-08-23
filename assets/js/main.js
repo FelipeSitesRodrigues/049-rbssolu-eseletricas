@@ -95,6 +95,37 @@
     aplicar();
   }
 
+  /* ------------------------------- conversões de WhatsApp e telefone */
+  /* Dispara um evento no Google Ads a cada clique que vira contato, com a
+     origem do clique. É isso que permite ao Ads saber qual palavra-chave
+     gerou conversa, e não só visita. */
+
+  document.addEventListener('click', function (e) {
+    var alvo = e.target instanceof Element ? e.target : null;
+    var link = alvo && alvo.closest('a[href]');
+    if (!link) return;
+
+    var href = link.getAttribute('href') || '';
+    var evento = '';
+    if (href.indexOf('wa.me') > -1) evento = 'clique_whatsapp';
+    else if (href.indexOf('tel:') === 0) evento = 'clique_telefone';
+    if (!evento) return;
+
+    var origem = 'botao_flutuante';
+    var card = link.closest('.servico');
+    var caixa = link.closest('section, footer, header');
+    if (card) {
+      var titulo = card.querySelector('h3');
+      origem = titulo ? 'servico: ' + titulo.textContent.trim() : 'servicos';
+    } else if (caixa) {
+      origem = caixa.id || caixa.tagName.toLowerCase();
+    }
+
+    if (typeof window.gtag === 'function') {
+      window.gtag('event', evento, { origem: origem });
+    }
+  });
+
   /* ------------------------------------------ carrossel de avaliações */
   var trilho = document.getElementById('trilho');
   var ant = document.getElementById('ant');
