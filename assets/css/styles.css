@@ -878,94 +878,35 @@ section { position: relative; }
   overflow: hidden;
   border: 1px solid var(--linha);
 }
-.mapa img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
+.mapa img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  filter: saturate(0.55) brightness(0.66) contrast(1.08);
+}
 .mapa::after {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(90deg, var(--carvao) 0%, transparent 30%);
+  background:
+    linear-gradient(90deg, var(--carvao) 0%, rgba(20, 20, 24, 0.45) 22%, transparent 55%),
+    linear-gradient(0deg, rgba(10, 10, 10, 0.9) 0%, transparent 45%),
+    radial-gradient(ellipse at 60% 40%, rgba(255, 195, 0, 0.18), transparent 62%);
   pointer-events: none;
 }
 
-.pino {
+.mapa figcaption {
   position: absolute;
+  left: 1rem;
+  bottom: 0.9rem;
   z-index: 2;
-  display: flex;
-  align-items: center;
-  gap: 0.4rem;
-  transform: translate(-50%, -100%);
-}
-.pino i {
-  font-size: 1.5rem;
-  color: var(--amarelo);
-  filter: drop-shadow(0 0 8px rgba(255, 195, 0, 0.75));
-}
-.pino span {
   font-variation-settings: 'wdth' 92;
-  font-size: 0.66rem;
+  font-size: 0.7rem;
   font-weight: 700;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--branco);
-  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.9);
-  white-space: nowrap;
-}
-
-/* ---------------------------------------------------------------- dúvidas */
-
-.faq {
-  display: grid;
-  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
-  gap: clamp(1.75rem, 4vw, 3.5rem);
-  align-items: start;
-}
-.faq__cabeca h2 { margin-bottom: 1rem; }
-.faq__cabeca p { max-width: 32ch; margin-bottom: 1.5rem; }
-
-.faq__lista details {
-  border-bottom: 1px solid var(--linha);
-}
-.faq__lista details:first-child { border-top: 1px solid var(--linha); }
-
-.faq__lista summary {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  padding: 1.1rem 0;
-  cursor: pointer;
-  list-style: none;
-  font-variation-settings: 'wdth' 94;
-  font-weight: 600;
-  font-size: 0.98rem;
-  color: var(--branco);
-  transition: color 180ms var(--ease-out);
-}
-.faq__lista summary::-webkit-details-marker { display: none; }
-.faq__lista summary::after {
-  content: '+';
-  margin-left: auto;
-  flex: none;
-  width: 28px;
-  height: 28px;
-  display: grid;
-  place-items: center;
-  border: 1px solid rgba(255, 195, 0, 0.4);
-  border-radius: var(--r-botao);
   color: var(--amarelo);
-  font-size: 1.1rem;
-  line-height: 1;
-  transition: transform 240ms var(--ease-out), background-color 240ms var(--ease-out);
-}
-.faq__lista summary:hover { color: var(--amarelo); }
-.faq__lista details[open] summary::after {
-  content: '+';
-  transform: rotate(45deg);
-  background: rgba(255, 195, 0, 0.12);
-}
-.faq__lista details p {
-  padding: 0 3rem 1.25rem 0;
-  font-size: 0.9rem;
-  line-height: 1.65;
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.9);
 }
 
 /* -------------------------------------------------------------- faixa CTA */
@@ -1154,7 +1095,11 @@ section { position: relative; }
 
   .atendimento { grid-template-columns: 1fr; }
   .mapa { order: -1; }
-  .mapa::after { background: none; }
+  .mapa::after {
+    background:
+      linear-gradient(0deg, rgba(10, 10, 10, 0.9) 0%, transparent 45%),
+      radial-gradient(ellipse at 60% 40%, rgba(255, 195, 0, 0.18), transparent 62%);
+  }
 
   .faixa__interno { flex-direction: column; text-align: center; }
   .faixa .btn { width: 100%; }
@@ -1174,7 +1119,6 @@ section { position: relative; }
   .motivos { grid-template-columns: 1fr; }
   .rodape__grade { grid-template-columns: 1fr; }
   .comparador { aspect-ratio: 3 / 4; max-width: 100%; }
-  .pino span { display: none; }
   .marca img { width: 108px; }
   .topo .btn--zap span { display: none; }
   .topo .btn--zap { padding: 0.8rem 0.95rem; }
