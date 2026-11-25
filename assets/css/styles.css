@@ -578,7 +578,7 @@ section { position: relative; }
   border-radius: var(--r-superficie);
   overflow: hidden;
 }
-.sobre__figura img { width: 100%; aspect-ratio: 3 / 2; object-fit: cover; object-position: center 12%; }
+.sobre__figura img { width: 100%; aspect-ratio: 3 / 2; object-fit: cover; object-position: center 0%; }
 .sobre__figura::after {
   content: '';
   position: absolute;
@@ -1079,7 +1079,7 @@ section { position: relative; }
   .hero__imagem img {
     position: static;
     aspect-ratio: 4 / 3;
-    object-position: center 18%;
+    object-position: center 0%;
   }
   .hero__imagem::after {
     background: linear-gradient(0deg, rgba(10, 10, 10, 0.55), transparent 45%);
