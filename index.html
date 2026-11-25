@@ -36,7 +36,7 @@
 <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css">
 <link rel="stylesheet" href="assets/css/styles.css">
 <link rel="icon" type="image/svg+xml" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="12" fill="%230a0a0a"/><path d="M36 8 20 36h10l-4 20 20-30H35z" fill="%23ffc300"/></svg>'>
-<link rel="preload" as="image" href="assets/img/ronaldo-rbs-bone.jpg" fetchpriority="high">
+<link rel="preload" as="image" type="image/webp" imagesrcset="assets/img/ronaldo-hero-600.webp 600w, assets/img/ronaldo-hero-944.webp 944w" imagesizes="(max-width: 860px) 300px, 520px" fetchpriority="high">
 
 <script type="application/ld+json">
 {
@@ -152,6 +152,13 @@
 
 <!-- ============================================================== HERO -->
 <section class="hero" id="hero">
+  <div class="hero__fundo" aria-hidden="true">
+    <picture>
+      <source media="(max-width: 860px)" srcset="assets/img/hero-fundo-cel.webp" width="760" height="1350">
+      <img src="assets/img/hero-fundo.webp" alt="" width="1672" height="941" decoding="async">
+    </picture>
+  </div>
+  <div class="hero__veu" aria-hidden="true"></div>
   <div class="envelope hero__grade">
     <div class="hero__texto">
       <div class="hero__cabeca">
@@ -180,7 +187,7 @@
     </div>
 
     <div class="hero__imagem">
-      <img src="assets/img/ronaldo-rbs-bone.jpg" alt="Ronaldo, eletricista da RBS Soluções Elétricas, de boné e camisa polo da empresa ao lado de um quadro de distribuição" width="1230" height="1278" fetchpriority="high">
+      <img srcset="assets/img/ronaldo-hero-600.webp 600w, assets/img/ronaldo-hero-944.webp 944w" sizes="(max-width: 860px) 300px, 520px" src="assets/img/ronaldo-hero-944.webp" alt="Ronaldo, eletricista da RBS Soluções Elétricas, de boné e camisa polo da empresa, de braços cruzados" width="944" height="1200" fetchpriority="high">
     </div>
 
     <ul class="selos">
